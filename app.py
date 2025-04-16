@@ -3,7 +3,6 @@ import hashlib
 import json
 import os
 from cryptography.fernet import Fernet
-import base64
 from datetime import datetime, timedelta
 
 # --- Constants ---
@@ -87,42 +86,55 @@ def encrypt_data(text):
 def decrypt_data(encrypted_text):
     return cipher.decrypt(encrypted_text.encode()).decode()
 
+# --- Global CSS Background Styling (applied to all pages) ---
+st.markdown(
+    """
+    <style>
+        .stApp {
+            background: linear-gradient(to right, #ffe0ec, #ffe8f0);
+            background-attachment: fixed;
+        }
+
+        .gradient-background {
+            background: linear-gradient(135deg, #ff7eb3, #ff758c, #ffb199);
+            padding: 100px 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            max-width: 700px;
+            margin: 100px auto;
+        }
+
+        .gradient-background h1 {
+            font-size: 3em;
+            margin-bottom: 0.2em;
+        }
+
+        .gradient-background p {
+            font-size: 1.5em;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# --- Sidebar Styling ---     ##ddd6f3, #faaca8
+st.markdown(
+    """
+    <style>
+        [data-testid="stSidebar"] {
+            background: linear-gradient(to bottom, #C9FFBF, #FFAFBD);     
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
+
 # --- UI Pages ---
 def home():
-    st.markdown(
-        """
-        <style>
-            /* Full page background gradient */
-            .stApp {
-                background: linear-gradient(to right, #ffe0ec, #ffe8f0);
-                background-attachment: fixed;
-            }
-
-            /* Welcome box styling */
-            .gradient-background {
-                background: linear-gradient(135deg, #ff7eb3, #ff758c, #ffb199);
-                padding: 100px 20px;
-                border-radius: 10px;
-                text-align: center;
-                color: white;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-                max-width: 700px;
-                margin: 100px auto;
-            }
-
-            .gradient-background h1 {
-                font-size: 3em;
-                margin-bottom: 0.2em;
-            }
-
-            .gradient-background p {
-                font-size: 1.5em;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
     st.markdown(
         """
         <div class="gradient-background">
@@ -132,7 +144,6 @@ def home():
         """,
         unsafe_allow_html=True
     )
-
 
 def register_page():
     st.subheader("📝 Register New User")
