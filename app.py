@@ -3,6 +3,7 @@ import hashlib
 import json
 import os
 from cryptography.fernet import Fernet
+import base64
 from datetime import datetime, timedelta
 
 # --- Constants ---

@@ -1,1 +1,5 @@
-fernet.key
+.env
+.env*
+.fernet*
+.fernet-*
+.fernet.key*
